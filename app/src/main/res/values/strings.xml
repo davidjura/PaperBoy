@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">PaperBoy</string>
+    <string name="app_name_caps">PAPERBOY</string>
+    <string name="conservative">CONSERVATIVE</string>
+    <string name="liberal">LIBERAL</string>
+    <string name="moderate">MODERATE</string>
+    <string name="intro_message">WELCOME TO PAPERBOY! BEGIN BY SELECTING YOUR POLITICAL IDEOLOGY SO WE CAN PICK THE BEST SUITED ARTICLES FOR YOU!</string>
+    <string name="no_favorites">YOU DONT HAVE ANY ARTICLES IN YOUR FAVORITES</string>
+    <string name="copyright">COPYRIGHT © 2016 DAVID JURA</string>
+
+    <!-- Conservative news APIs below -->
+    <string name="breitbart_api">http://feeds.feedburner.com/breitbart?format=xml</string>
+    <string name="the_blaze_api">http://www.theblaze.com/stories/feed/</string>
+
+    <!-- Liberal news APIs below -->
+    <string name="huffington_post_api">http://www.huffingtonpost.com/feeds/news.xml</string>
+    <string name="salon_api">http://www.salon.com/feed/</string>
+
+    <!-- Moderate news APIs below -->
+    <string name="bbc_api">http://feeds.bbci.co.uk/news/rss.xml</string>
+    <string name="abc_api">http://feeds.abcnews.com/abcnews/politicsheadlines</string>
+
+    <!-- Miscellaneous strings below -->
+    <string name="favorite_msg">You have added this article to your favorites</string>
+    <string name="unfavorite_msg">You have removed this article from your favorites</string>
+    <string name="empty_article">PLEASE VISIT THE ARTICLE USING THE BROWSER BUTTON ABOVE TO VIEW THE CONTENT\n\n</string>
+    <string name="connection_error">AN ERROR OCCURRED WHILE CONNECTING PLEASE TRY AGAIN LATER</string>
+
+</resources>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="app.paperboy.paperboy.ArticleActivity"
+    android:background="@color/colorAccent">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:id="@+id/toolbarTop"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"/>
+
+    <ImageView
+        android:layout_width="16dp"
+        android:layout_height="10dp"
+        android:id="@+id/btnBack"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/back"
+        android:layout_alignBottom="@+id/toolbarTop"
+        android:layout_margin="16dp" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_below="@+id/toolbarTop">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbarTop"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_below="@+id/txtTitle"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorPrimaryDark"
+                android:id="@+id/divider1"></FrameLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imgHead"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="16dp"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="LARGE TEXT"
+                android:id="@+id/txtTitle"
+                android:layout_below="@+id/imgHead"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="50dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorPrimaryDark"
+                android:id="@+id/divider2"
+                android:layout_below="@+id/txtDate"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="DATE"
+                android:id="@+id/txtDate"
+                android:textColor="@color/colorPrimaryDark"
+                android:alpha="0.5"
+                android:layout_below="@+id/divider1"
+                android:layout_toRightOf="@+id/imgArticleSource"
+                android:layout_toEndOf="@+id/imgArticleSource"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnFavorite"
+                android:src="@drawable/star_unclicked"
+                android:layout_alignBottom="@+id/txtDate"
+                android:layout_alignTop="@+id/txtDate"
+                android:layout_alignRight="@+id/imgHead"
+                android:layout_alignEnd="@+id/imgHead" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnOpenBrowser"
+                android:src="@drawable/browser"
+                android:layout_toLeftOf="@+id/btnFavorite"
+                android:layout_toStartOf="@+id/btnFavorite"
+                android:layout_alignBottom="@+id/btnFavorite"
+                android:layout_alignTop="@+id/btnFavorite"
+                android:layout_marginRight="20dp"
+                android:alpha="0.5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/txtBody"
+                android:layout_below="@+id/divider2"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="16dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginBottom="16dp" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/imgArticleSource"
+                android:src="@drawable/breitbart"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="false"
+                android:layout_alignTop="@+id/divider1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignBottom="@+id/divider2"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp" />
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/progressBar"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:indeterminate="false"
+                android:layout_marginTop="16dp" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
