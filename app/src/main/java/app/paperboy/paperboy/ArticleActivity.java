@@ -84,6 +84,9 @@ public class ArticleActivity extends AppCompatActivity {
             case TimeLineDocument.ABC:
                 btnArticleSource.setImageResource(R.drawable.abc);
                 break;
+            case TimeLineDocument.REUTERS:
+                btnArticleSource.setImageResource(R.drawable.reuters);
+                break;
         }
 
         /* Setup favorite button and set appropriate drawable resource (if the article has been
@@ -164,6 +167,7 @@ public class ArticleActivity extends AppCompatActivity {
         ImageView imgHead = (ImageView) findViewById(R.id.imgHead);
         if (!image.equals("")) {
             imgHead.getLayoutParams().width = width;
+            //noinspection SuspiciousNameCombination
             imgHead.getLayoutParams().height = width;
             imageHandler.setImage(image, imgHead);
         } else {
@@ -208,6 +212,11 @@ public class ArticleActivity extends AppCompatActivity {
                 //Download and parse the BBC article
                 case TimeLineDocument.BBC:
                     currText = downloadBBC();
+                    break;
+                    //Download and parse the Reuters article
+                case TimeLineDocument.REUTERS:
+                    currText = downloadReuters();
+                    break;
             }
             return currText;
         }
@@ -401,6 +410,29 @@ public class ArticleActivity extends AppCompatActivity {
             if (currText.equals(""))
                 currText = getString(R.string.empty_article);
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return currText;
+    }
+
+    /**
+     * Downloads the article body of the Reuters article
+     *
+     * @return String of the article body
+     */
+    private String downloadReuters(){
+        String currText = "";
+        try{
+            Document reutersDownload = Jsoup.connect(url).get();
+            Elements paragraphs = reutersDownload.select("p");
+            for(Element item:paragraphs){
+                //condition to check for garbage data to break out of parsing
+                if(item.text().toUpperCase().contains("REUTERS IS THE NEWS AND MEDIA DIVISION"))
+                    break;
+                currText += item.text().toUpperCase();
+                currText += "\n\n";
+            }
+        }catch(IOException e){
             e.printStackTrace();
         }
         return currText;

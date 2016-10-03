@@ -70,6 +70,7 @@ public class TimelineAdapter extends ArrayAdapter<TimeLineDocument> {
             holder = new ViewHolder();
             holder.imgArticle = (ImageView) convertView.findViewById(R.id.imgArticle);
             holder.imgArticle.getLayoutParams().width = width;
+            //noinspection SuspiciousNameCombination
             holder.imgArticle.getLayoutParams().height = width;
             holder.imgArticle.setImageBitmap(null);
             holder.imgPublisher = (ImageView) convertView.findViewById(R.id.imgPublisher);
@@ -84,6 +85,7 @@ public class TimelineAdapter extends ArrayAdapter<TimeLineDocument> {
             holder = (ViewHolder) convertView.getTag();
             holder.imgArticle.setImageBitmap(null);
             holder.imgArticle.getLayoutParams().width = width;
+            //noinspection SuspiciousNameCombination
             holder.imgArticle.getLayoutParams().height = holder.imgArticle.getLayoutParams().width;
             holder.imgPublisher.setImageBitmap(null);
         }
@@ -126,6 +128,9 @@ public class TimelineAdapter extends ArrayAdapter<TimeLineDocument> {
                 break;
             case TimeLineDocument.ABC:
                 holder.imgPublisher.setImageResource(R.drawable.abc);
+                break;
+            case TimeLineDocument.REUTERS:
+                holder.imgPublisher.setImageResource(R.drawable.reuters);
                 break;
         }
 

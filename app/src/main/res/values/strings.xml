@@ -19,6 +19,7 @@
     <!-- Moderate news APIs below -->
     <string name="bbc_api">http://feeds.bbci.co.uk/news/rss.xml</string>
     <string name="abc_api">http://feeds.abcnews.com/abcnews/politicsheadlines</string>
+    <string name="reuters_api">http://feeds.reuters.com/Reuters/PoliticsNews?format=xml</string>
 
     <!-- Miscellaneous strings below -->
     <string name="favorite_msg">You have added this article to your favorites</string>

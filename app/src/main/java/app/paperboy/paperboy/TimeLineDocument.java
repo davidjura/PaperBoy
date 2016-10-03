@@ -18,6 +18,7 @@ public class TimeLineDocument {
     public static final int SALON = 3;
     public static final int BBC = 4;
     public static final int ABC = 5;
+    public static final int REUTERS = 6;
 
     /**
      * The constructor for the TimeLineDocument

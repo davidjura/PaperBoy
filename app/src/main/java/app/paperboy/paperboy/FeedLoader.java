@@ -210,6 +210,10 @@ public class FeedLoader {
                         Document abc = Jsoup.connect(mContext.getString(R.string.abc_api))
                                 .parser(Parser.xmlParser()).get();
 
+                        //Download Reuters data
+                        Document reuters = Jsoup.connect(mContext.getString(R.string.reuters_api))
+                                .parser(Parser.xmlParser()).get();
+
                         //Iterate through BBC data and append to timeline list
                         for (Element item : bbc.select("channel").select("item")) {
                             //Discard intro article (Because BBC included it in their feed)
@@ -219,12 +223,18 @@ public class FeedLoader {
                                             .equals("BBC BREAKFAST") ||
                                     item.select("title").text().toUpperCase().contains("WATCH:"))
                                 continue;
+                            String image = "";
+                            try{
+                                image = item.select("media|thumbnail").first().attr("url");
+                            }catch (NullPointerException e){
+                                e.printStackTrace();
+                            }
                             TimeLineDocument temp = new TimeLineDocument(
                                     item.select("title").text(),
                                     item.select("pubDate").text()
                                             .substring(0, item.select("pubDate")
                                                     .text().length() - 13),
-                                    item.select("media|thumbnail").first().attr("url"),
+                                    image,
                                     item.select("link").text(),
                                     TimeLineDocument.BBC
                             );
@@ -242,6 +252,26 @@ public class FeedLoader {
                                     item.select("media|thumbnail").get(4).attr("url"),
                                     item.select("link").text(),
                                     TimeLineDocument.ABC
+                            );
+                            timeline.add(temp);
+                        }
+
+                        //Iterate through Reuters data and append to timeline list
+                        for(Element item : reuters.select("channel").select("item")){
+                            String image = "";
+                            try{
+                                Document dl = Jsoup.connect(item.select("link").text()).get();
+                                image = dl.select("img").first().attr("src");
+                            }catch(NullPointerException e){
+                                e.printStackTrace();
+                            }
+                            TimeLineDocument temp = new TimeLineDocument(
+                                    item.select("title").text(),
+                                    item.select("pubDate").text().substring(0,
+                                            item.select("pubDate").text().length()-15),
+                                    image,
+                                    item.select("link").text(),
+                                    TimeLineDocument.REUTERS
                             );
                             timeline.add(temp);
                         }

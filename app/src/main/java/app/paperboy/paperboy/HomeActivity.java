@@ -123,7 +123,13 @@ public class HomeActivity extends AppCompatActivity {
                         txtNoFavorites.setVisibility(View.INVISIBLE);
                         progressLoading.setVisibility(View.VISIBLE);
                     } else
-                        homeList.smoothScrollToPosition(0);
+                        homeList.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                homeList.smoothScrollBy(0, 0);
+                                homeList.setSelection(0);
+                            }
+                        });
                     break;
             }
             return true;
@@ -203,7 +209,13 @@ public class HomeActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             //Navigate to the top of the homeList
-            homeList.smoothScrollToPosition(0);
+            homeList.post(new Runnable() {
+                @Override
+                public void run() {
+                    homeList.smoothScrollBy(0, 0);
+                    homeList.setSelection(0);
+                }
+            });
         }
     };
 
